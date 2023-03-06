@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3183770329B63A44006E1734 /* Binding+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3183770229B63A44006E1734 /* Binding+Extension.swift */; };
+		3183770529B64D8D006E1734 /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3183770429B64D8D006E1734 /* View+Extension.swift */; };
 		31DF197929B5209400E32027 /* APICallApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DF197829B5209400E32027 /* APICallApp.swift */; };
 		31DF197B29B5209400E32027 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DF197A29B5209400E32027 /* ContentView.swift */; };
 		31DF197D29B5209D00E32027 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 31DF197C29B5209D00E32027 /* Assets.xcassets */; };
@@ -28,6 +30,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3183770229B63A44006E1734 /* Binding+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Binding+Extension.swift"; sourceTree = "<group>"; };
+		3183770429B64D8D006E1734 /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
 		31DF197529B5209400E32027 /* APICall.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = APICall.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		31DF197829B5209400E32027 /* APICallApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICallApp.swift; sourceTree = "<group>"; };
 		31DF197A29B5209400E32027 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -153,6 +157,8 @@
 			isa = PBXGroup;
 			children = (
 				31DF19DD29B5229900E32027 /* StatusCode+Helper.swift */,
+				3183770229B63A44006E1734 /* Binding+Extension.swift */,
+				3183770429B64D8D006E1734 /* View+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -263,9 +269,11 @@
 				31DF19F329B5229900E32027 /* NetworkLogger.swift in Sources */,
 				31DF19F429B5229900E32027 /* StatusCode+Helper.swift in Sources */,
 				31DF19E029B5229900E32027 /* Router.swift in Sources */,
+				3183770329B63A44006E1734 /* Binding+Extension.swift in Sources */,
 				31DF19EC29B5229900E32027 /* ErrorMapper.swift in Sources */,
 				31DF19F029B5229900E32027 /* Environment.swift in Sources */,
 				31DF19EF29B5229900E32027 /* NetworkError.swift in Sources */,
+				3183770529B64D8D006E1734 /* View+Extension.swift in Sources */,
 				31DF197929B5209400E32027 /* APICallApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
