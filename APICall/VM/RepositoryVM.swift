@@ -40,7 +40,6 @@ class RepositoryVM: ObservableObject {
                 self?.networkManager.request(request) {[weak self] (result: Result<RepositoryModelBase, Error>) in
                     switch result {
                     case .success(let repositoryModelBase):
-                        print("Number of items: ", repositoryModelBase.items?.count)
                         if Int(page) == 1 {
                             self?.repoItems = []
                         }
