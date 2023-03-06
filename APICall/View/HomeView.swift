@@ -16,6 +16,7 @@ struct HomeView: View {
                 
                 Text("No item avaiable")
                     .isEmpty(repositoryVM.repoItems.count != 0)
+                    .padding(.top,200)
                 
                 List(repositoryVM.repoItems,id:\.id){ item in
                     NavigationLink(item.full_name ?? "") {

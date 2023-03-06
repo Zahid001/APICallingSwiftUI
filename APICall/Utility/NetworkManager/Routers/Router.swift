@@ -10,15 +10,14 @@ import Foundation
 typealias HTTPParameters = [String: Any]?
 
 enum Router {
-
-    case all
-    case name(String)
+    
+   
     case repositories(String,String)
     
     // MARK: - HTTP Method
     var method: HTTPMethod {
         switch self {
-        case .all, .name, .repositories:
+        case  .repositories:
             return .get
         }
     }
@@ -26,10 +25,6 @@ enum Router {
     // MARK: - Path
     var path: String {
         switch self {
-        case .all:
-            return "all"
-        case .name:
-            return "name"
         case .repositories:
             return "repositories"
         }
@@ -38,8 +33,6 @@ enum Router {
     // MARK: - Parameters
     var parameters: HTTPParameters {
         switch self {
-        case .name(let name):
-            return ["name": name]
         case .repositories(let query, let page):
             return [
                 "q": query,
@@ -49,7 +42,7 @@ enum Router {
             return nil
         }
     }
-
+    
     var url: URL {
         guard let url = URL(string: kNetworkEnvironment.baseURL + "/search/") else {
             fatalError(ErrorMessage.invalidUrl.rawValue)
@@ -59,7 +52,7 @@ enum Router {
     
     // MARK: - URLRequestConvertible
     func requestURL() throws -> URLRequest {
-
+        
         var components = URLComponents(string: url.appendingPathComponent(path).description)!
         components.queryItems = []
         
@@ -67,34 +60,22 @@ enum Router {
             components.queryItems = param.map { (key, value) in
                 URLQueryItem(name: key, value: value as? String)
             }
-
+            
         }
-
-            components.percentEncodedQuery = components.percentEncodedQuery?.replacingOccurrences(of: "+", with: "%2B")
-            let request = URLRequest(url: components.url!)
         
-        var urlRequest = request //URLRequest(url: url.appendingPathComponent(path))
-
-        print("kjk",url.appendingPathComponent(path))
+        components.percentEncodedQuery = components.percentEncodedQuery?.replacingOccurrences(of: "+", with: "%2B")
+        var urlRequest = URLRequest(url: components.url!)
+        
+        
         // HTTP Method
         urlRequest.httpMethod = method.rawValue
         urlRequest.cachePolicy = kRequestCachePolicy
         urlRequest.timeoutInterval = kTimeoutInterval
-
+        
         // Common Headers
         urlRequest.setValue(ContentType.json.rawValue, forHTTPHeaderField: HTTPHeaderField.acceptType.rawValue)
         urlRequest.setValue(ContentType.json.rawValue, forHTTPHeaderField: HTTPHeaderField.contentType.rawValue)
-        
-        
 
-        // Parameters
-//        if let parameters = parameters {
-//            do {
-//                urlRequest.httpBody = try JSONSerialization.data(withJSONObject: parameters, options: [])
-//            } catch {
-//                throw ErrorMessage.encodingFailed
-//            }
-//        }
         return urlRequest
     }
 }
