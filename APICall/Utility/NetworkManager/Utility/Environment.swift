@@ -22,11 +22,11 @@ extension Environment {
     var baseURL: String {
         switch self {
         case .beta:
-            return "https://restcountries.com"
+            return "https://api.github.com"
         case .development:
-            return "https://restcountries.com"
+            return "https://api.github.com"
         case .production:
-            return "https://restcountries.com"
+            return "https://api.github.com"
         }
     }
 }
